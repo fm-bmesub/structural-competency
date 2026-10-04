@@ -206,8 +206,8 @@
 
   <!-- ==================== SKILL TREE VIEWPORT ==================== -->
   <main id="viewport" class="flex-1 relative overflow-hidden blueprint-grid cursor-grab active:cursor-grabbing">
-    <div id="treeContainer" class="absolute transform-gpu origin-top-left transition-transform duration-75" style="width: 5000px; height: 2000px; left: 0px; top: 0px;">
-      <svg id="connectionsLayer" class="absolute inset-0 w-full h-full pointer-events-none z-0" style="min-width: 5000px; min-height: 2000px; overflow: visible;">
+    <div id="treeContainer" class="absolute transform-gpu origin-top-left transition-transform duration-75" style="width: 5300px; height: 2000px; left: 0px; top: 0px;">
+      <svg id="connectionsLayer" class="absolute inset-0 w-full h-full pointer-events-none z-0" style="min-width: 5300px; min-height: 2000px; overflow: visible;">
         <defs>
           <filter id="glowUnlocked" x="-50%" y="-50%" width="200%" height="200%">
             <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="blur" />
@@ -222,7 +222,7 @@
     </div>
   </main>
 
-  <!-- ==================== JOBB ALSÓ LEBEGŐ "EREDMÉNYEK" GOMB (Villogás támogatással) ==================== -->
+  <!-- ==================== JOBB ALSÓ LEBEGŐ "EREDMÉNYEK" GOMB ==================== -->
   <button id="openAchievementsBtn" class="fixed bottom-6 right-6 z-40 px-4 py-3 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-extrabold rounded-2xl shadow-[0_0_25px_rgba(245,158,11,0.5)] flex items-center gap-2.5 transition-all duration-200 hover:scale-105 active:scale-95 border border-amber-300/60">
     <i class="ph-bold ph-trophy text-2xl"></i>
     <span class="text-sm tracking-wide">Eredmények</span>
@@ -312,7 +312,6 @@
         </button>
       </div>
 
-      <!-- Görgethető lista -->
       <div class="p-6 overflow-y-auto space-y-3.5 flex-1" id="achievementsListContainer">
       </div>
     </div>
@@ -502,15 +501,17 @@
       { id: "misc_cad_adv", title: "CAD tervezés haladó", category: "miscellaneous", categoryName: "CAD használat", parentId: "misc_cad_basic", icon: "ph ph-cube-transparent", desc: "Bonyolultabb alkatrészek tervezése, a TOP-DOWN és a BOTTOM-UP tervezés ismerete, paraméteres tervezés.", x: 4060, y: 680 },
       { id: "misc_rendering_basic", title: "Renderelés alapok", category: "miscellaneous", categoryName: "Renderelés", parentId: "miscellaneous", icon: "ph ph-paint-brush-broad", desc: "Alkatrészek és összeállítások renderelési alapjai, alapszintű, CAD szoftverbeli renderelési készségek.", x: 4420, y: 470 },
       { id: "misc_rendering_adv", title: "Renderelés haladó", category: "miscellaneous", categoryName: "Renderelés", parentId: "misc_rendering_basic", icon: "ph ph-projector-screen", desc: "Blender-beli valósághű textúrázás, fénybeállítások és professzionális termékvizualizáció.", x: 4420, y: 680 },
-       { id: "misc_drawing_basic", title: "Műszaki rajzolás alapok", category: "miscellaneous", categoryName: "Műszaki rajzok", parentId: "miscellaneous", icon: "ph ph-pencil-ruler", desc: "Alkatrész és összeállítási rajzok műszaki szabályainak, szabványainak alapszintű ismerete, egyszerűbb rajzok, robbantott ábrák készítése.", x: 4780, y: 470 },
+      { id: "misc_drawing_basic", title: "Műszaki rajzolás alapok", category: "miscellaneous", categoryName: "Műszaki rajzok", parentId: "miscellaneous", icon: "ph ph-pencil-ruler", desc: "Alkatrész és összeállítási rajzok műszaki szabályainak, szabványainak alapszintű ismerete, egyszerűbb rajzok, robbantott ábrák készítése.", x: 4780, y: 470 },
       { id: "misc_drawing_adv", title: "Műszaki rajzolás haladó", category: "miscellaneous", categoryName: "Műszaki rajzok", parentId: "misc_drawing_basic", icon: "ph ph-bezier-curve", desc: "Alkatrész és összeállítási rajzok műszaki szabályainak, szabványainak mély ismerete, komplex rajzok készítése.", x: 4780, y: 680 },
-       { id: "misc_topopt_basic", title: "Topológiai optimalizáció alapok", category: "miscellaneous", categoryName: "TopOpt", parentId: "miscellaneous", icon: "ph ph-log", desc: "Tetszőleges TopOpt szoftver alapszintű ismerete, a topológiai optimalizáció elvi alapjai.", x: 3880, y: 870 },
+      
+      /* Elemek manuális kontrollpontokkal (route) az átfedések elkerülésére */
+      { id: "misc_topopt_basic", title: "Topológiai optimalizáció alapok", category: "miscellaneous", categoryName: "TopOpt", parentId: "miscellaneous", icon: "ph ph-git-merge", desc: "Tetszőleges TopOpt szoftver alapszintű ismerete, a topológiai optimalizáció elvi alapjai.", x: 3880, y: 870, route: [{ x: 3880, y: 380 }] },
       { id: "misc_topopt_adv", title: "Topológiai optimalizáció haladó", category: "miscellaneous", categoryName: "TopOpt", parentId: "misc_topopt_basic", icon: "ph ph-git-branch", desc: "Tetszőleges TopOpt szoftver beható ismerete, magabiztos használata.", x: 3880, y: 1080 },
-      { id: "doc_basic", title: "Műszaki dokumentáció alapok", category: "miscellaneous", categoryName: "Dokumentáció", parentId: "miscellaneous", icon: "ph ph-file-doc", desc: "Műszaki dokumentációk készítése alap szinten, érthető megfogalmazással, műszaki szaknyelv használatával.", x: 4240, y: 870 },
+      { id: "doc_basic", title: "Műszaki dokumentáció alapok", category: "miscellaneous", categoryName: "Dokumentáció", parentId: "miscellaneous", icon: "ph ph-file-doc", desc: "Műszaki dokumentációk készítése alap szinten, érthető megfogalmazással, műszaki szaknyelv használatával.", x: 4240, y: 870, route: [{ x: 4240, y: 380 }] },
       { id: "doc_adv", title: "Műszaki dokumentáció haladó", category: "miscellaneous", categoryName: "Dokumentáció", parentId: "doc_basic", icon: "ph ph-files", desc: "Műszaki dokumentációk készítése kiváló minőségben, LaTeX-ben, kifejező, magas minőségű ábrákkal.", x: 4240, y: 1080 },
-      { id: "launch_rail_basic", title: "Állványállítás alapok", category: "miscellaneous", categoryName: "Állvány", parentId: "miscellaneous", icon: "ph ph-gear", desc: "Az állvány részleges ismerete, állványállításban való aktív részvétel.", x: 4600, y: 870 },
+      { id: "launch_rail_basic", title: "Állványállítás alapok", category: "miscellaneous", categoryName: "Állvány", parentId: "miscellaneous", icon: "ph ph-gear", desc: "Az állvány részleges ismerete, állványállításban való aktív részvétel.", x: 4600, y: 870, route: [{ x: 4600, y: 380 }] },
       { id: "launch_rail_adv", title: "Állványállítás haladó", category: "miscellaneous", categoryName: "Állvány", parentId: "launch_rail_basic", icon: "ph ph-user-gear", desc: "Teljes állvány és minden munkafolyamat ismerete.", x: 4600, y: 1080 },
-      { id: "launch_rail_master", title: "Állványállítás mester", category: "miscellaneous", categoryName: "Állvány", parentId: "launch_rail_adv", icon: "ph ph-user-circle-gear", desc: "Teljes állványállítás önálló és magabiztos levezénylése.", x: 4600, y: 1480 }
+      { id: "launch_rail_master", title: "Állványállítás mester", category: "miscellaneous", categoryName: "Állvány", parentId: "launch_rail_adv", icon: "ph ph-user-circle-gear", desc: "Teljes állványállítás önálló és magabiztos levezénylése.", x: 4600, y: 1290 }
     ];
 
     /* ==========================================================================
@@ -844,7 +845,7 @@
     }
 
     /* ==========================================================================
-       KOMPONENSEK & KAPCSOLÓVONALAK RENDERE
+       KOMPONENSEK & KAPCSOLÓVONALAK RENDERE (KONTROLLPONTOK TÁMOGATÁSÁVAL)
        ========================================================================== */
     function renderTree() {
       const nodesLayer = document.getElementById("nodesLayer");
@@ -968,13 +969,30 @@
         const y2 = skill.y - 30;
 
         let pathData = "";
-        const isVertical = Math.abs(x1 - x2) < 5;
 
-        if (isVertical) {
-          pathData = `M ${x1} ${y1} L ${x2} ${y2}`;
+        // Ha manuálisan definiált útvonal / kontrollpontok vannak megadva
+        if (skill.route && Array.isArray(skill.route) && skill.route.length > 0) {
+          pathData = `M ${x1} ${y1}`;
+          let prevX = x1;
+          let prevY = y1;
+
+          skill.route.forEach(pt => {
+            const dy = pt.y - prevY;
+            pathData += ` C ${prevX} ${prevY + dy * 0.5}, ${pt.x} ${pt.y - dy * 0.5}, ${pt.x} ${pt.y}`;
+            prevX = pt.x;
+            prevY = pt.y;
+          });
+
+          const finalDy = y2 - prevY;
+          pathData += ` C ${prevX} ${prevY + finalDy * 0.5}, ${x2} ${y2 - finalDy * 0.5}, ${x2} ${y2}`;
         } else {
-          const deltaY = (y2 - y1);
-          pathData = `M ${x1} ${y1} C ${x1} ${y1 + deltaY * 0.45}, ${x2} ${y2 - deltaY * 0.45}, ${x2} ${y2}`;
+          const isVertical = Math.abs(x1 - x2) < 5;
+          if (isVertical) {
+            pathData = `M ${x1} ${y1} L ${x2} ${y2}`;
+          } else {
+            const deltaY = (y2 - y1);
+            pathData = `M ${x1} ${y1} C ${x1} ${y1 + deltaY * 0.45}, ${x2} ${y2 - deltaY * 0.45}, ${x2} ${y2}`;
+          }
         }
 
         const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
@@ -1254,13 +1272,11 @@
       const badge = document.getElementById("achievementsCountBadge");
       if (badge) badge.textContent = `${count} / ${ACHIEVEMENTS_DATA.length}`;
 
-      // Gomb pulzálásának ellenőrzése
       const btn = document.getElementById("openAchievementsBtn");
       if (!btn) return;
 
       btn.classList.remove("newly-unlocked-gold-pulse", "newly-revoked-purple-pulse");
 
-      // Ellenőrizzük, hogy van-e nyugtázatlan eredmény
       let hasNewAchievementUnlock = false;
       let hasNewAchievementRevoke = false;
 
@@ -1429,7 +1445,7 @@
       const vWidth = viewport.clientWidth;
       const vHeight = viewport.clientHeight;
 
-      const contentWidth = 5000 * currentScale;
+      const contentWidth = 5300 * currentScale;
       const contentHeight = 2000 * currentScale;
 
       const marginX = Math.min(300, vWidth * 0.4);
